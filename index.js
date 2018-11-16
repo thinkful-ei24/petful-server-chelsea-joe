@@ -30,17 +30,27 @@ app.use(
 //GET Endpoint
 
 //Cat
-app.get('/api/cat', (req, res, next) => {
-  return res.json(Cat);
+app.get('/api/cat', (req, res) => {
+  return res.json(Cat[0]);
 });
 
 //Dog
-app.get('/api/dog', (req, res, next) => {
-  return res.json(Dog);
+app.get('/api/dog', (req, res) => {
+  return res.json(Dog[0]);
 });
 
 //DELETE Endpoint
+app.delete('/api/cat', (req, res) => {
+  Cat.shift();
+  return res.json('Cat Adopted!');
+})
 
+app.delete('/api/dog', (req, res) => {
+  Dog.shift();
+  return res.json('Dog Adopted');
+})
+
+//RUN SERVER
 function runServer(port = PORT) {
   const server = app
     .listen(port, () => {
