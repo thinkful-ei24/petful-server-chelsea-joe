@@ -1,5 +1,7 @@
 'use strict';
-const Dog = [
+const Queue = require('./queue');
+
+const DogList = [
   {
     imageURL:
       'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
@@ -34,5 +36,11 @@ const Dog = [
     story: 'pageant dog'
   }
 ];
+
+const Dog = new Queue();
+
+for(let doggo of DogList) {
+  Dog.enqueue(doggo);
+}
 
 module.exports = Dog;

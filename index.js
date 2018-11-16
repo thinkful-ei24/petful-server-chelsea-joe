@@ -31,22 +31,25 @@ app.use(
 
 //Cat
 app.get('/api/cat', (req, res) => {
-  return res.json(Cat[0]);
+  if(!Cat.peek()) {
+    return res.json({Pet: 'Out of Pet'})
+  }
+  return res.json(Cat.peek());
 });
 
 //Dog
 app.get('/api/dog', (req, res) => {
-  return res.json(Dog[0]);
+  return res.json(Dog.peek());
 });
 
 //DELETE Endpoint
 app.delete('/api/cat', (req, res) => {
-  Cat.shift();
+  Cat.dequeue();
   return res.json('Cat Adopted!');
 })
 
 app.delete('/api/dog', (req, res) => {
-  Dog.shift();
+  Dog.dequeue();
   return res.json('Dog Adopted');
 })
 
