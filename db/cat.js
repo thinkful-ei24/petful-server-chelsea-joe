@@ -5,7 +5,7 @@ const Cat = new Queue();
 
 Cat.enqueue({
   imageURL:
-    'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg',
+    'https://imgur.com/KGCT9mw.jpg',
   imageDescription:
     'Orange bengal cat with black stripes lounging on concrete.',
   name: 'Fluffy',
@@ -17,7 +17,7 @@ Cat.enqueue({
 Cat.enqueue(
   {
     imageURL:
-      'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg',
+      'https://imgur.com/w2cH7ml.jpg',
     imageDescription:
       'Orange cat that likes lasagna',
     name: 'Garfield',
@@ -28,7 +28,7 @@ Cat.enqueue(
   });
 Cat.enqueue({
   imageURL:
-    'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg',
+    'https://imgur.com/vZA6hsO.jpg',
   imageDescription:
     'White siamese with good business taste',
   name: 'Princess Twinkle Toes',

@@ -4,35 +4,35 @@ const Queue = require('./queue');
 const DogList = [
   {
     imageURL:
-      'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
+      'https://imgur.com/YLkMx9d.jpg',
     imageDescription:
-      'A smiling golden-brown golden retreiver listening to music.',
+      'A smiling golden-brown winnie dog listening to music.',
     name: 'Zeus',
     sex: 'Male',
     age: 3,
-    breed: 'Golden Retriever',
+    breed: 'Winnie Dog',
     story: 'Owner Passed away'
   },
   {
     imageURL:
-      'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
+      'https://imgur.com/wJHGeYI.jpg',
     imageDescription:
-      'A big black lab',
+      'A big gray pug',
     name: 'Poseidon',
     sex: 'Male',
     age: 3,
-    breed: 'Black Labrador',
+    breed: 'Pug',
     story: 'Ex security guard'
   },
   {
     imageURL:
-      'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
+      'https://imgur.com/t8JjeOn.jpg',
     imageDescription:
-      'A smiling handsome overweight bulldog',
+      'A smiling handsome overweight chihuahua',
     name: 'Honey Boo Boo',
     sex: 'Female',
     age: 2,
-    breed: 'English Bulldog',
+    breed: 'English Chihuahua',
     story: 'pageant dog'
   }
 ];
