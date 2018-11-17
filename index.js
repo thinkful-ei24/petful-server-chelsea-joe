@@ -3,8 +3,9 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+const fetch = require('node-fetch');
 
-const { PORT, CLIENT_ORIGIN } = require('./config');
+const { PORT, CLIENT_ORIGIN, PETFINDER_API_KEY} = require('./config');
 //const { dbConnect } = require('./db-mongoose');
 // const {dbConnect} = require('./db-knex');
 
@@ -31,15 +32,55 @@ app.use(
 
 //Cat
 app.get('/api/cat', (req, res) => {
-  if(!Cat.peek()) {
-    return res.json({Pet: 'Out of Pet'})
-  }
-  return res.json(Cat.peek());
+  fetch(`http://api.petfinder.com/pet.getRandom?format=json&key=${PETFINDER_API_KEY}&output=full&animal=cat`, {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json'
+    }
+  })
+  .then(res => res.json())
+  .then(dogData => {
+    Cat.enqueue({
+      imageURL: dogData.petfinder.pet.media.photos.photo[2].$t,
+      imageDescription: dogData.petfinder.pet.breeds.breed.$t,
+      name: dogData.petfinder.pet.name.$t,
+      sex: dogData.petfinder.pet.sex.$t,
+      age: dogData.petfinder.pet.age.$t,
+      breed: dogData.petfinder.pet.breeds.breed.$t,
+      story: dogData.petfinder.pet.description.$t,
+    })
+
+    return;
+  })
+  .then(() => res.json(Cat.peek()))
+  .catch((err) => new Error(err.message));
 });
 
 //Dog
 app.get('/api/dog', (req, res) => {
-  return res.json(Dog.peek());
+  fetch(`http://api.petfinder.com/pet.getRandom?format=json&key=${PETFINDER_API_KEY}&output=full&animal=dog`, {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json'
+    }
+  })
+  .then(res => res.json())
+  .then(dogData => {
+    Dog.enqueue({
+      imageURL: dogData.petfinder.pet.media.photos.photo[2].$t,
+      imageDescription: dogData.petfinder.pet.breeds.breed.$t,
+      name: dogData.petfinder.pet.name.$t,
+      sex: dogData.petfinder.pet.sex.$t,
+      age: dogData.petfinder.pet.age.$t,
+      breed: dogData.petfinder.pet.breeds.breed.$t,
+      story: dogData.petfinder.pet.description.$t,
+    })
+
+    return;
+  })
+  .then(() => res.json(Dog.peek()))
+  .catch((err) => new Error(err.message));
+  // return res.json(Dog.peek());
 });
 
 //DELETE Endpoint
