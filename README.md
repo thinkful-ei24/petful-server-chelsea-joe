@@ -4,13 +4,13 @@ The petdrop api is quite simple, powered by a queue data structure and the petfi
 
 # Instructions
 
-##GET
+## GET
 
 /api/cat & /api/dog
 
 returns a random call by making a fetch request to the petfinder API https://www.petfinder.com/developers/api-key , it then enqueues the pet into the dog or cat queue and shows you the first pet in line.
 
-##DELETE
+## DELETE
 
 /api/cat & /api/dog
 
